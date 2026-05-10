@@ -450,7 +450,7 @@ result_test["moneyness_cat"] = pd.cut(
 # Tau category
 result_test["tau_cat"] = pd.cut(
     result_test["Tau"],
-    bins=[0, 60, 365, 9999],
+    bins=[0, 60/365, 1, 9999],
     labels=["Short(<60d)", "Mid(60-365d)", "Long(>365d)"]
 )
 
