@@ -238,7 +238,7 @@ def optuna_xgb(name, features):
     def objective(trial):
         params = {
             "n_estimators":      trial.suggest_int("n_estimators", 100, 1000, step=100),
-            "max_depth":         trial.suggest_int("max_depth", 3, 10),
+            "max_depth":         trial.suggest_int("max_depth", 3, 7),
             "learning_rate":     trial.suggest_float("learning_rate", 0.01, 0.3, log=True),
             "subsample":         trial.suggest_float("subsample", 0.6, 1.0, step=0.1),
             "colsample_bytree":  trial.suggest_float("colsample_bytree", 0.6, 1.0, step=0.1),
@@ -451,7 +451,7 @@ result_test["moneyness_cat"] = pd.cut(
 result_test["tau_cat"] = pd.cut(
     result_test["Tau"],
     bins=[0, 60/365, 1, 9999],
-    labels=["Short(<60d)", "Mid(60-365d)", "Long(>365d)"]
+    labels=["Short(<2mo)", "Mid(2mo-1yr)", "Long(>1yr)"]
 )
 
 # All predictions

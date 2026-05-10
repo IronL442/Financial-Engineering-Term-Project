@@ -402,7 +402,7 @@ mono_analysis.to_csv("residual_by_moneyness.csv", index=False)
 result_test["tau_cat"] = pd.cut(
     result_test["Tau"],
     bins=[0, 60/365, 1, 9999],
-    labels=["Short (<60d)", "Mid (60-365d)", "Long (>365d)"]
+    labels=["Short(<2mo)", "Mid(2mo-1yr)", "Long(>1yr)"]
 )
 print("\n  MAE by Tau (XGB3):")
 tau_analysis = result_test.groupby("tau_cat").apply(
